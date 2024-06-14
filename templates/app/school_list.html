@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>SchoolList</h1>
+        {% for so in schools %}
+    
+        <a href="{{so.pk}}"><h2>{{so.sname}}</h2></a>
+
+        {% endfor %}
+    </center>
+</body>
+</html> 
