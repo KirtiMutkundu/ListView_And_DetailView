@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from app.models import *
-from django.views.generic import ListView,DetailView
+from django.views.generic import TemplateView,ListView,DetailView,CreateView,UpdateView
 from django.http import HttpResponse
 
 # Create your views here.
+
+class Home(TemplateView):
+    template_name='app/Home.html'
 
 class Schoollist(ListView):
     model=School
@@ -19,3 +22,14 @@ def wish(request,n):
 class SchoolDetail(DetailView): 
     model=School
     context_object_name='schoolobject'
+
+class SchoolCreate(CreateView):
+    model=School
+    fields='__all__'
+
+
+class SchoolUpdate(UpdateView):
+    model=School
+    fields='__all__'
+
+

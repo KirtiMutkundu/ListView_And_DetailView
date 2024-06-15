@@ -1,22 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <center>
-        <h1>DETAIL INFORMATION OF :- {{schoolobject}}</h1>
-        <h2>Name Of The School Is {{schoolobject.sname}}</h2>
-        <h2>Name Of The Principal Is {{schoolobject.sprincipal}}</h2>
-        <h2>Name Of The Location Is {{schoolobject.slocation}}</h2>
+{% extends 'app/dummy.html' %}
 
-        <h1>STUDENT DETAILS ARE :-</h1>
-        {% for sto in schoolobject.students.all %}
-        <h3>Name Of Student Is {{sto.stname}}</h3>
-        <h3>Age Of Student Is {{sto.stage}}</h3>
-        {% endfor %}
-    </center>
-</body>
-</html>
+
+{% block title %}
+<title>Home</title>
+{% endblock %}
+
+
+
+{% block body_block %}
+<center>
+    <h1>Detail information of {{schoolobject}}</h1>
+    <h2>Name of the School is {{schoolobject.sname}}</h2>
+    
+    <h2>principal of the School is {{schoolobject.sprincipal}}</h2>
+    <h2>Sclocation of the School is {{schoolobject.slocation}}</h2>
+
+<h1>Student Details are</h1>
+
+{% for sto in schoolobject.students.all %}
+        <h3>name of student is {{sto.stname}}</h3>
+        
+        <h3>age of student is {{sto.stage}}</h3>
+{% endfor %}
+
+
+
+<a href="{% url 'SchoolUpdate' pk=schoolobject.pk %}" class="btn btn-danger">SchoolUpdate</a>
+</center>
+
+{% endblock %}
